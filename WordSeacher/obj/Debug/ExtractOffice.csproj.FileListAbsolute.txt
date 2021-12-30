@@ -1,0 +1,10 @@
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\bin\Debug\ExtractOffice.exe.config
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\bin\Debug\ExtractOffice.exe
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\bin\Debug\ExtractOffice.pdb
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.csproj.AssemblyReference.cache
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.csproj.ResolveComReference.cache
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.Properties.Resources.resources
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.csproj.GenerateResource.cache
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.csproj.CoreCompileInputs.cache
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.exe
+C:\Users\itohisao\Desktop\DotNetProject\ExtractOffice\ExtractOffice\obj\Debug\ExtractOffice.pdb

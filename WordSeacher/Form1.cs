@@ -120,7 +120,7 @@ namespace WordSeacher
             fbd.Description = "ディレクトリの選択";
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             if (serchSet.baseDirectory == "")
-                fbd.SelectedPath = @"C:\Users\" + Environment.UserName + @"\Desktop\work";
+                fbd.SelectedPath = @"C:\Users\" + Environment.UserName + @"\Desktop";
             else
                 fbd.SelectedPath = serchSet.baseDirectory;
             fbd.ShowNewFolderButton = false;

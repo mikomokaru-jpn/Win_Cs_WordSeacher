@@ -12,19 +12,19 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="formWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">400</Value>
+      <Value Profile="(Default)">600</Value>
     </Setting>
     <Setting Name="formHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">300</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="colFolderWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="colFileWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="colCountWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="searchOption" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -39,7 +39,7 @@
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="colSheetWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="baseDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

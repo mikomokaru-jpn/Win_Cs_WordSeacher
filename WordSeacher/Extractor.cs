@@ -136,7 +136,7 @@ namespace WordSeacher
                 }
                 else if (shape.Type == MsoShapeType.msoGroup)
                 {
-                    foreach (Excel.Shape child in shape.GroupItems)
+                    foreach (Word.Shape child in shape.GroupItems)
                     {
                         ExtractText(child, ref text);
                     }

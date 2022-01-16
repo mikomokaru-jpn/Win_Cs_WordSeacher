@@ -56,11 +56,10 @@ namespace WordSeacher
                 {
                     Visible = false,
                     DisplayAlerts = false,
+                    EnableEvents = false,
                 }, "Excel.Application");
-
             comBooks = new ComObject<Excel.Workbooks>(
                 comExcel.obj.Workbooks, "Excel.Workbooks");
-
         }
         //Word抽出器の作成
         public void createWord()

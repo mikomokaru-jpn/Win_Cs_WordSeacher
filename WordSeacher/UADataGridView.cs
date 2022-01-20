@@ -193,9 +193,13 @@ namespace WordSeacher
                     { script = "count DESC, folder DESC, file DESC, sheet DESC"; }
                     break;
                 default:
-                    break;
+                    return;
             }
             dataTable.DefaultView.Sort = script;
+            resultView.Rows[0].Selected = true;
+            resultView.ScrollBars = ScrollBars.None; //これがないとスクロールバーが移動しない。なんだかな。
+            resultView.ScrollBars = ScrollBars.Both; //々
+            resultView.FirstDisplayedScrollingColumnIndex = 0;
         }
     }
 }

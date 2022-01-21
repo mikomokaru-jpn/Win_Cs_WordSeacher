@@ -105,6 +105,8 @@ namespace WordSeacher
             }
             dataTable.DefaultView.Sort = "count DESC, folder DESC, file DESC, sheet DESC";
             resultView.Rows[0].Selected = true; //先頭行を選択状態にする
+            resultView.ScrollBars = ScrollBars.None; //これがないとスクロールバーが移動しない。なんだかな。
+            resultView.ScrollBars = ScrollBars.Both; //々
         }
         //列の幅が変わった
         public void resultView_ColumnWidthChanged(object srnder, DataGridViewColumnEventArgs e)

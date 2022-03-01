@@ -15,123 +15,105 @@ namespace WordSeacher
         Panel panel1 = new Panel()
         {
             Location = new Point(10, 10),
-            Size = new Size(340, 260),
+            Size = new Size(340, 230),
             BorderStyle = BorderStyle.FixedSingle,
-        };
-        //検索対象ファイルタイプ
-        RadioButton radioText = new RadioButton()
-        {
-            Location = new Point(10, 10),
-            Text = "テキスト検索",
-            TextAlign = ContentAlignment.MiddleLeft,
         };
         //対象ファイルタイプ
         Label label1 = new Label
         {
-            Location = new Point(10, 40),
+            Location = new Point(10, 20),
             Size = new Size(70, 20),
             Text = "対象拡張子",
         };
         TextBox tbIncludeTypes = new TextBox()
         {
-            Location = new Point(80, 35),
+            Location = new Point(80, 15),
             Size = new Size(250, 25),
         };
         Label label3 = new Label
         {
-            Location = new Point(80, 60),
+            Location = new Point(80, 40),
             Size = new Size(300, 25),
             Text = "指定がない場合すべてのファイルタイプを対象とする",
         };
         //対象外ファイルタイプ
         Label label2 = new Label
         {
-            Location = new Point(10, 90),
+            Location = new Point(10, 70),
             Size = new Size(70, 20),
             Text = "除外拡張子",
         };
         TextBox tbExcludeTypes = new TextBox()
         {
-            Location = new Point(80, 85),
+            Location = new Point(80, 65),
             Size = new Size(250, 25),
         };
         Label label4 = new Label
         {
-            Location = new Point(80, 110),
+            Location = new Point(80, 90),
             Size = new Size(300, 25),
             Text = "対象拡張子の指定がない場合のみ有効",
         };
         //パネル1a
         Panel panel1a = new Panel()
         {
-            Location = new Point(20, 130),
+            Location = new Point(0, 110),
             Size = new Size(310, 30),
-            BorderStyle = BorderStyle.None,
+            //BorderStyle = BorderStyle.FixedSingle
+        };
+        Label label6 = new Label
+        {
+            Location = new Point(10, 0),
+            Size = new Size(70, 30),
+            TextAlign = ContentAlignment.MiddleLeft,
+            Text = "文字コード",
         };
         //文字コード
         RadioButton radioUTF8 = new RadioButton()
         {
-            Location = new Point(60, 2),
+            Location = new Point(80, 2),
             TextAlign = ContentAlignment.MiddleLeft,
             Size = new Size(70, 25),
             Text = "UTF-8"
         };
         RadioButton radioSJIS = new RadioButton()
         {
-            Location = new Point(130, 2),
+            Location = new Point(150, 2),
             TextAlign = ContentAlignment.MiddleLeft,
             Size = new Size(70, 25),
             Text = "Shift-JIS"
         };
 
+        //大文字小文字区別する
+        CheckBox checkCase = new CheckBox()
+        {
+            Location = new Point(10, 150),
+            Size = new Size(150, 20),
+            TextAlign = ContentAlignment.MiddleLeft,
+            Text = "大文字小文字区別する"
+        };
+
         //並列タスク数
         Label label5 = new Label
         {
-            Location = new Point(10, 160),
+            Location = new Point(10, 180),
             Size = new Size(70, 20),
             Text = "並列タスク数",
             TextAlign = ContentAlignment.MiddleLeft,
         };
         ComboBox comNumTasks = new ComboBox()
         {
-            Location = new Point(80, 160),
+            Location = new Point(80, 180),
             Size = new Size(50, 25),
         };
-        //-------------------------------------------------------------
-        Label line = new Label
-        {
-            Location = new Point(0, 190),
-            Size = new Size(340, 1),
-            BorderStyle = BorderStyle.FixedSingle,
-        };
-        //Excelデータ
-        RadioButton radioExcel = new RadioButton()
-        {
-            Location = new Point(10, 195),
-            TextAlign = ContentAlignment.MiddleLeft,
-            Size = new Size(150, 25),
-            Text = "Excel データ検索"
-        };
-        Label line2 = new Label
-        {
-            Location = new Point(0, 225),
-            Size = new Size(340, 1),
-            BorderStyle = BorderStyle.FixedSingle,
-        };
-        //Wordデータ
-        RadioButton radioWord = new RadioButton()
-        {
-            Location = new Point(10, 230),
-            TextAlign = ContentAlignment.MiddleLeft,
-            Size = new Size(150, 25),
-            Text = "Word データ検索"
-        };
+
+       
         //-------------------------------------------------------------
         // パネル2
         //-------------------------------------------------------------
         Panel panel2 = new Panel()
         {
-            Location = new Point(10, 280),
+            Location = new Point(10, 250),
             Size = new Size(340, 60),
             BorderStyle = BorderStyle.FixedSingle,
         };
@@ -160,7 +142,7 @@ namespace WordSeacher
         //文字列をそのまま検索
         RadioButton radioAsIs = new RadioButton()
         {
-            Location = new Point(170, 10),
+            Location = new Point(170, 30),
             Size = new Size(150, 20),
             TextAlign = ContentAlignment.MiddleLeft,
             Text = "文字列をそのまま検索"
@@ -174,18 +156,11 @@ namespace WordSeacher
             Size = new Size(340, 40),
             BorderStyle = BorderStyle.FixedSingle,
         };
-        //大文字小文字区別する
-        CheckBox checkCase = new CheckBox()
-        {
-            Location = new Point(10, 10),
-            Size = new Size(150, 20),
-            TextAlign = ContentAlignment.MiddleLeft,
-            Text = "大文字小文字区別する"
-        };
+
         //コンストラクタ
         public FormSettings()
         {
-            this.ClientSize = new Size(360, 430);
+            this.ClientSize = new Size(360, 330);
             this.Text = "設定";     // タイトルを設定
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.Load += form_Load;
@@ -194,36 +169,23 @@ namespace WordSeacher
             this.KeyPreview = true;
             //コントロールの追加
             this.Controls.Add(panel1);
-            panel1.Controls.Add(radioText);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(tbIncludeTypes);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(tbExcludeTypes);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(panel1a);
-            panel1a.Controls.Add(radioUTF8);
-            panel1a.Controls.Add(radioSJIS);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(comNumTasks);
+            panel1.Controls.AddRange(new Control[]
+            {
+                label1, label2, label3, label4, label5, tbIncludeTypes, tbExcludeTypes,  comNumTasks, panel1a, checkCase 
+            });
+            panel1a.Controls.AddRange(new Control[]
+            {
+               label6, radioUTF8, radioSJIS
+            });
             comNumTasks.Items.AddRange(new string[] { "1", "10" });
-            panel1.Controls.Add(line);
-            panel1.Controls.Add(radioExcel);
-            panel1.Controls.Add(line2);
-            panel1.Controls.Add(radioWord);
-            radioText.Checked = true;
             radioUTF8.Checked = true;
-            radioText.Click += new EventHandler(radio_Click);
-            radioExcel.Click += new EventHandler(radio_Click);
-            radioWord.Click += new EventHandler(radio_Click);
-            this.Controls.Add(panel2);
-            panel2.Controls.Add(panel2Label);
-            panel2.Controls.Add(radioAND);
-            panel2.Controls.Add(radioOR);
-            panel2.Controls.Add(radioAsIs);
             radioAND.Checked = true;
-            this.Controls.Add(panel3);
-            panel3.Controls.Add(checkCase);
+
+            this.Controls.Add(panel2);
+            panel2.Controls.AddRange(new Control[]
+            {
+                panel2Label, radioAND, radioOR, radioAsIs
+            });
         }
         //フォームの開始
         void form_Load(object sender, EventArgs e)
@@ -239,30 +201,10 @@ namespace WordSeacher
             //設定の表示
             this.setValue();
         }
-        //テキスト <-> Office 切り替え
-        void radio_Click(object sender, EventArgs e)
-        {
-            var target = Target.Text;
-            if (radioExcel.Checked)
-            {
-                target = Target.Excel;
-            }
-            else if (radioWord.Checked)
-            {
-                target = Target.Word;
-            }
-            this.changeStatus(target);
-        }
         //フォームの終了
         void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             //値の保存
-            if (radioText.Checked)
-                serchSet.target = Target.Text;
-            else if (radioExcel.Checked)
-                serchSet.target = Target.Excel;
-            else
-                serchSet.target = Target.Word;
             serchSet.includeTypes = tbIncludeTypes.Text;
             serchSet.excludeTypes = tbExcludeTypes.Text;
             var w = int.Parse(comNumTasks.SelectedItem.ToString());
@@ -314,7 +256,6 @@ namespace WordSeacher
         {
             if (target == Target.Text)
             {
-                radioText.Checked = true;
                 tbIncludeTypes.Enabled = true;
                 tbExcludeTypes.Enabled = true;
                 panel1a.Enabled = true;
@@ -327,10 +268,6 @@ namespace WordSeacher
             }
             else
             {
-                if (target == Target.Excel)
-                    radioExcel.Checked = true;
-                else
-                    radioWord.Checked = true;
                 panel1a.Enabled = false;
                 label1.Enabled = false;
                 label2.Enabled = false;

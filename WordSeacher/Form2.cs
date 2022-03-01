@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,9 +36,6 @@ namespace WordSeacher
     {
         //<<<< プロパティ >>>>
         private Form1 form1 = null;
-        private Extractor extractor;
-        List<string> excelTypeList = new List<string> { "xls", "xlsx", "xlsm" };
-        List<string> wordTypeList = new List<string> { "doc", "docx" };
 
         //処理中止フラグ
         public bool cancelFlag { get; set; }
@@ -95,8 +91,6 @@ namespace WordSeacher
             //キャンセルボタン
             this.Controls.Add(btnCancel);
             btnCancel.Click += new EventHandler(btnCancel_Click);
-            //Office抽出器
-            extractor = new Extractor();
         }
         void btnCancel_Click(object sender, EventArgs e)
         {
@@ -149,15 +143,6 @@ namespace WordSeacher
             progress.Minimum = 0;
             progress.Maximum = fileInfoList.Count;
             total = fileInfoList.Count;
-            //Office抽出器の生成
-            if (serchSet.target == Target.Excel)
-            {
-                extractor.createExcel();
-            }
-            else if (serchSet.target == Target.Word)
-            {
-                extractor.createWord();
-            }
             //処理の並列化
             var taskList = new Task<int>[num];
             var resultList = new List<Result>();
@@ -172,11 +157,6 @@ namespace WordSeacher
                 taskList[i] = task;
             }
             int[] retCode = await Task.WhenAll<int>(taskList);
-            //Office抽出器の後処理
-            if (serchSet.target == Target.Excel || serchSet.target == Target.Word)
-            {
-                extractor.CleanUp();
-            }
             sw.Stop();
             //ウィンドウを閉じる
             this.Close();
@@ -192,49 +172,21 @@ namespace WordSeacher
             for (int i = 0; i < files.Length; i++)
             {
                 var suffix = files[i].Extension.Replace(".", "");
-                if (serchSet.target == Target.Text)  //テキストファイル
+                //ファイルタイプによるファイルの選択
+                if (serchSet.includeTypeList.Count > 0) //Inclusionあり
                 {
-                    //ファイルタイプによるファイルの選択
-                    if (serchSet.includeTypeList.Count > 0) //Inclusionあり
+                    if (serchSet.includeTypeList.IndexOf(suffix) >= 0)
+                    { fileInfoList.Add((files[i].FullName, Target.Text)); }
+                }
+                else //Inclusionなし
+                {
+                    if (serchSet.excludeTypeList.Count > 0) //Exclusionあり
                     {
-                        if (serchSet.includeTypeList.IndexOf(suffix) >= 0)
+                        if (serchSet.excludeTypeList.IndexOf(suffix) < 0)
                         { fileInfoList.Add((files[i].FullName, Target.Text)); }
                     }
-                    else //Inclusionなし
-                    {
-                        if (serchSet.excludeTypeList.Count > 0) //Exclusionあり
-                        {
-                            if (serchSet.excludeTypeList.IndexOf(suffix) < 0)
-                            { fileInfoList.Add((files[i].FullName, Target.Text)); }
-                        }
-                        else //Exclusionなし
-                        { fileInfoList.Add((files[i].FullName, Target.Text)); }
-                    }
-                }
-                else if (serchSet.target == Target.Excel)  //Excel
-                {
-                    if (files[i].Name.Substring(0, 1) == "~")
-                    {   //一時ファイルはスキップ
-                        continue;
-                    }
-                    //ファイルタイプによるファイルの選択
-                    if (excelTypeList.Count > 0)
-                    {
-                        if (excelTypeList.IndexOf(suffix) >= 0)
-                        { fileInfoList.Add((files[i].FullName, Target.Excel)); }
-                    }
-                }
-                else //Word
-                {
-                    if (files[i].Name.Substring(0, 1) == "~")
-                    {   //一時ファイルはスキップ
-                        continue;
-                    }
-                    if (wordTypeList.Count > 0)
-                    {
-                        if (wordTypeList.IndexOf(suffix) >= 0)
-                        { fileInfoList.Add((files[i].FullName, Target.Word)); }
-                    }
+                    else //Exclusionなし
+                    { fileInfoList.Add((files[i].FullName, Target.Text)); }
                 }
             }
             //ディレクトリ一覧
@@ -273,18 +225,7 @@ namespace WordSeacher
                 try
                 {
                     var textList = new List<(string, string)>();
-                    if (serchSet.target == Target.Text) 
-                    {
-                        textList.Add(("", File.ReadAllText(preResult.fullPath, encode)));
-                    }
-                    else if (serchSet.target == Target.Word)
-                    {
-                        textList.Add(("", extractor.textOfWord(preResult.fullPath)));
-                    }
-                    else if (serchSet.target == Target.Excel)
-                    {
-                        textList = extractor.textOfExcel(preResult.fullPath);
-                    }
+                    textList.Add(("", File.ReadAllText(preResult.fullPath, encode)));
                     foreach ((string, string) record in textList)
                     {
                         var count = 0;

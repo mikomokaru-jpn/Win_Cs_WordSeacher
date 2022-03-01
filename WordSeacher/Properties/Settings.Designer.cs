@@ -61,7 +61,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("400")]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
         public int formWidth {
             get {
                 return ((int)(this["formWidth"]));
@@ -73,7 +73,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public int formHeight {
             get {
                 return ((int)(this["formHeight"]));
@@ -85,7 +85,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int colFolderWidth {
             get {
                 return ((int)(this["colFolderWidth"]));
@@ -97,7 +97,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int colFileWidth {
             get {
                 return ((int)(this["colFileWidth"]));
@@ -109,7 +109,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int colCountWidth {
             get {
                 return ((int)(this["colCountWidth"]));
@@ -169,7 +169,7 @@ namespace WordSeacher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int colSheetWidth {
             get {
                 return ((int)(this["colSheetWidth"]));

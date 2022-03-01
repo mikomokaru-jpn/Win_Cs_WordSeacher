@@ -6,7 +6,6 @@ using System.Drawing;
 
 namespace WordSeacher
 {
-
     public delegate void menuOperation(string path);
 
     class UADataGridView

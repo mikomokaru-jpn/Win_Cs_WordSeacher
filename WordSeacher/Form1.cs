@@ -240,47 +240,35 @@ namespace WordSeacher
         //検索条件の表示
         private void DispSerachInfo()
         {
-            var text = "Searching ";
-            switch (serchSet.target)
-            {
-                case Target.Text:
-                    text += "Text";
-                    break;
-                case Target.Excel:
-                    text += "Excel";
-                    break;
-                case Target.Word:
-                    text += "Word";
-                    break;
-            }
+            var text = "検索条件 ";
             switch (serchSet.searchOption)
             {
                 case SearchOption.AND:
-                    text += " ope=AND";
+                    text += "= AND";
                     break;
                 case SearchOption.OR:
-                    text += " ope=OR";
+                    text += "= OR";
                     break;
                 case SearchOption.AsiS:
-                    text += " ope=asis";
+                    text += "= as is";
                     break;
             }
             switch (serchSet.charCode)
             {
                 case CharCode.UTF8:
-                    text += " UTF-8";
+                    text += "  UTF-8";
                     break;
                 case CharCode.SJIS:
-                    text += " shift_jis";
+                    text += "  shift_jis";
                     break;
             }
             if (serchSet.caseSensitive)
             {
-                text += " caseSensitive";
+                text += "  caseSensitive";
             }
             else
             {
-                text += " NotCaseSensitive";
+                text += "  NotCaseSensitive";
             }
             this.searchInfo.Text = text;
         }
